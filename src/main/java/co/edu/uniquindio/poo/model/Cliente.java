@@ -1,5 +1,6 @@
 package co.edu.uniquindio.poo.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -53,5 +54,19 @@ public class Cliente {
 
     public Tienda getOwnedByTienda() {
         return ownedByTienda;
+    }
+
+    public boolean isCompraEnFecha(LocalDate fechaConsulta) {
+        boolean comproFecha = false;
+        for (Factura factura : listaFacturas){
+            if(factura.fecha().isEqual(fechaConsulta)){
+                return true;
+            }
+        }
+        return comproFecha;
+    }
+
+    public boolean verificarNombreConR() {
+        return nombreCompleto.startsWith("R");
     }
 }
